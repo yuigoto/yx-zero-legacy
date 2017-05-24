@@ -1,0 +1,13 @@
+# Folders
+assets/
+data/
+history/
+libs/
+.idea/
+
+# Files
+.project
+index.php
+
+# Project files, i.e. `.brackets` should NOT be excluded as they contain 
+# compiler settings and other important information for Brackets editor.

@@ -1,0 +1,59 @@
+=Heading 1=
+==Heading 2==
+===Heading 3===
+====Heading 4====
+=====Heading 5=====
+======Heading 6======
+-----
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, ipsam, minima, sequi id consequatur possimus aliquam pariatur sed porro sapiente iste ducimus praesentium laborum maiores iure vero repudiandae ad maxime consequuntur ipsum. 
+Nihil, ducimus, architecto, deserunt, quas praesentium voluptatem debitis quod nulla dolor fuga minima similique doloremque quaerat nam quos est obcaecati beatae facilis omnis vero culpa commodi molestiae inventore voluptate modi totam illo dicta eius qui repudiandae animi accusantium magni fugit quae illum expedita eveniet!
+Hic, delectus voluptates illo vero? Consequatur, totam, maxime, nemo eius reprehenderit cumque nisi maiores voluptates esse facilis rem magni eaque voluptatibus enim vitae accusantium cupiditate excepturi ea quos iste! Voluptatum, debitis, nam, atque quos molestiae voluptates dolorem fugit officia quisquam nulla veritatis earum animi?
+-----
+Este é um teste de parágrafo com texto em ***Negrito***, **Texto com Enfatização**, ///Texto em Itálico///, //Texto com Enfatização Simples//, __Texto com Underline__, ___Texto para Inserção___, --Texto para Exclusão--.
+-----
+Texto superscrito é 10^^1328^^ melhor que texto ~~subscrito~~.
+-----
+Você pode fazer uma [cite]Citação Simples[/cite] em uma linha.
+
+[blockquote]Ou pode inserir tudo em um blockquote![/blockquote]
+
+Você também pode inserir quebras\\de linha em seus textos.
+-----
+Aqui está um [[www.whiterabbit.com.br|Link com Texto Simples]] ou, se preferir, pode salvar um link de texto com URL, assim: [[placehold]].
+-----
+Você pode incluir imagens, assim: {{//placehold.it/250x250|Placehold!}} ou assim {{//placehold.it/180x160/eff400/204a85}}.
+-----
+Se preferir, pode adicionar um iframe:
+<<sandbox.wr|380x480>>
+-----
+Uma coisa muito legal é poder criar listas não ordenadas simples:
+* Ítem de lista;
+* Ítem de lista;
+* Ítem de lista;
+* Ítem de lista;
+* Ítem de lista;
+
+Ou listas ordenadas simples:
+# Ítem de lista;
+# Ítem de lista;
+# Ítem de lista;
+# Ítem de lista;
+# Ítem de lista;
+
+É possível aninhar listas **do mesmo tipo** apenas, em até três níveis:
+* Ítem de lista;
+** Ítem de sublista;
+** Ítem de sublista;
+* Ítem de lista;
+** Ítem de sublista;
+** Ítem de sublista;
+*** Subítem de sublista;
+*** Subítem de sublista;
+** Ítem de sublista;
+*** Subítem de sublista;
+** Ítem de sublista;
+*** Subítem de sublista;
+*** Subítem de sublista;
+* Ítem de lista;
+* Ítem de lista;
+** Ítem de sublista;
