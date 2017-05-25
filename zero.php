@@ -4449,7 +4449,7 @@ class _0 {
      * @return string
      *      Base64 encoded image wrapped, or not, in an 'img' tag
      */
-    public static function imgsPlaceholderNoise(
+    public static function placeholderNoise(
         $img_w = 100,
         $img_h = 100,
         $grayscale = false,
@@ -4526,7 +4526,7 @@ class _0 {
      * @return string
      *      Base64 encoded image wrapped, or not, in an 'img' tag
      */
-    public function imgsPlaceholderText(
+    public static function placeholderText(
         $img_w = 100,
         $img_h = 100,
         $bg_color = "",
