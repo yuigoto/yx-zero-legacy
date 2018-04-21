@@ -1,4 +1,6 @@
 <?php
+namespace YX;
+
 /**
  * _0 (ZERO) :: PHP Code Dump
  * ======================================================================
@@ -56,7 +58,8 @@
  * @version     1.0.0
  * @license     MIT License
  */
-class _0 {
+class _0 
+{
     // 00: CLASS CONSTANTS AND PROPERTIES
     // ------------------------------------------------------------------
 

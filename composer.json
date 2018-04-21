@@ -1,0 +1,20 @@
+{
+  "name": "yx/_0",
+  "description": "A PHP code dump.",
+  "homepage": "https://github.com/yuigoto/yx-php-zero",
+  "keywords": ["code", "dump"],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Fabio Y. Goto", 
+      "email": "lab@yuiti.com.br", 
+      "homepage": "https://yuiti.com.br"
+    }
+  ],
+  "autoload": {
+      "psr-4": {
+          "YX\\": "src/"
+      }
+  },
+}
