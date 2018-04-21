@@ -1807,7 +1807,7 @@ class _0
      * @param string $pass
      *      Optional, database password, required when using MySQL only,
      *      default: null
-     * @return PDO|bool
+     * @return \PDO|bool
      *      PDO Object if successful, or boolean false in case of failure
      */
     public static function dbInit(
@@ -1830,8 +1830,8 @@ class _0
 
         // Connect and return using try-catch
         try {
-            return new PDO( $cmds, $user, $pass );
-        } catch( PDOException $erro ) {
+            return new \PDO( $cmds, $user, $pass );
+        } catch( \PDOException $erro ) {
             die( "Erro ao inicializar PDO: {$erro->getMessage()}" );
         } catch( Exception $erro ) {
             die( "Erro: {$erro->getMessage()}" );
@@ -1841,14 +1841,14 @@ class _0
     /**
      * Checks the type of driver being used in a PDO object and returns it.
      *
-     * @param PDO $handle
+     * @param \PDO $handle
      *      PDO object handle
      * @return string
      *      Driver name, lowercase (mysql, sqlite, etc.)
      */
     public static function dbTest( $handle )
     {
-        return $handle->getAttribute( PDO::ATTR_DRIVER_NAME );
+        return $handle->getAttribute( \PDO::ATTR_DRIVER_NAME );
     }
 
     /**
@@ -1929,7 +1929,7 @@ class _0
      *
      * @param string $name
      *      Table name to search for
-     * @param PDO $handle
+     * @param \PDO $handle
      *      PDO object handle
      * @return bool
      *      True if table exists, false if don't
@@ -1975,7 +1975,7 @@ class _0
      *      Table name to check
      * @param string $command
      *      SQL command for CREATE TABLE
-     * @param PDO $handle
+     * @param \PDO $handle
      *      PDO object handle
      * @return bool
      *      True is successful, false if not
@@ -2002,7 +2002,7 @@ class _0
      *
      * Requires PDO with MySQL or SQLite drivers.
      *
-     * @param PDO $handle
+     * @param \PDO $handle
      *      PDO object handle
      * @param bool $commands_only
      *      Optional, defines if the method should return only the CREATE
@@ -2033,7 +2033,7 @@ class _0
      *
      * Requires PDO with MySQL driver.
      *
-     * @param PDO $handle
+     * @param \PDO $handle
      *      PDO object handle, with the MySQL driver
      * @param bool $commands_only
      *      Optional, defines if the method should return only the CREATE
@@ -2061,7 +2061,7 @@ class _0
 
         // Query to extract tables
         $query = "SHOW TABLES;";
-        $fetch = $handle->query( $query )->fetchAll( PDO::FETCH_ASSOC );
+        $fetch = $handle->query( $query )->fetchAll( \PDO::FETCH_ASSOC );
 
         // If fetch returns results
         if ( count( $fetch ) > 0 ) {
@@ -2107,7 +2107,7 @@ class _0
      *
      * Requires PDO with SQLite driver.
      *
-     * @param PDO $handle
+     * @param \PDO $handle
      *      PDO object handle, with the SQLite driver
      * @param bool $commands_only
      *      Optional, defines if the method should return only the CREATE
@@ -2140,7 +2140,7 @@ class _0
             $fetch = $handle->query( $query );
 
             // Extracting data
-            while ( $line = $fetch->fetch( PDO::FETCH_ASSOC ) ) {
+            while ( $line = $fetch->fetch( \PDO::FETCH_ASSOC ) ) {
                 // Getting table name
                 $tables["name"][] = $line["tbl_name"];
 
@@ -2151,7 +2151,7 @@ class _0
 
                 // If command query returns false, skip this
                 if ( false === $handle->query( $cmds ) ) break;
-                $pull = $handle->query( $cmds )->fetch( PDO::FETCH_COLUMN );
+                $pull = $handle->query( $cmds )->fetch( \PDO::FETCH_COLUMN );
 
                 // Add create command
                 $tables["cmds"][] = $pull.";";
@@ -2181,7 +2181,7 @@ class _0
      *
      * Requires PDO with SQLite driver.
      *
-     * @param PDO $handle
+     * @param \PDO $handle
      *      PDO object handle, with MySQL or SQLite drivers
      * @param string $table
      *      Table name to extract data
@@ -2207,7 +2207,7 @@ class _0
             $fetch = $handle->query( $query );
 
             // Looping through all entries
-            while ( $line = $fetch->fetch( PDO::FETCH_ASSOC ) ) {
+            while ( $line = $fetch->fetch( \PDO::FETCH_ASSOC ) ) {
                 // Key and Value arrays
                 $keys = array();
                 $vals = array();
@@ -2578,11 +2578,11 @@ class _0
         $nums = count( $list["path"] ) + count( $list["file"] );
 
         if ( $nums > 0 ) {
-            $zipFile = new ZipArchive();
+            $zipFile = new \ZipArchive();
 
             $zipMode = ( file_exists( $save.$file ) )
-                ? ZipArchive::OVERWRITE
-                : ZipArchive::CREATE;
+                ? \ZipArchive::OVERWRITE
+                : \ZipArchive::CREATE;
 
             if ( file_exists( $save.$file ) && false === $overwrite ) {
                 return false;
@@ -2644,7 +2644,7 @@ class _0
         $keep_struct = ( false === $keep_struct ) ? false : true;
 
         // Initializing
-        $init = new ZipArchive();
+        $init = new \ZipArchive();
 
         // If opening is successful
         if ( true === $init->open( $file ) ) {
@@ -2682,7 +2682,7 @@ class _0
      *
      * @param string $node
      *      Optional, XML file root node, default: info
-     * @return SimpleXMLElement|bool
+     * @return \SimpleXMLElement|bool
      *      SimpleXMLElement object or boolean false if non existent
      */
     public static function xmlMake( $node = "" )
@@ -2690,7 +2690,7 @@ class _0
         if ( !class_exists( "SimpleXMLElement" ) ) return false;
         $head = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";
         $node = ( trim( $node ) != "" ) ? "<".trim( $node )."/>" : "<info/>";
-        return new SimpleXMLElement( $head.$node, null, false );
+        return new \SimpleXMLElement( $head.$node, null, false );
     }
 
     /**
@@ -2698,7 +2698,7 @@ class _0
      *
      * @param string $file
      *      Full path to the XML file
-     * @return SimpleXMLElement|bool
+     * @return \SimpleXMLElement|bool
      *      SimpleXMLElement object or boolean false if invalid
      */
     public static function xmlOpen( $file )
@@ -2706,13 +2706,13 @@ class _0
         if ( !class_exists( "SimpleXMLElement" ) ) return false;
         $file = trim( $file );
         if ( !file_exists( $file ) ) return false;
-        return new SimpleXMLElement( $file, null, true );
+        return new \SimpleXMLElement( $file, null, true );
     }
 
     /**
      * Converts a SimpleXMLElement object into a string, with DOMDocument.
      *
-     * @param SimpleXMLElement $data
+     * @param \SimpleXMLElement $data
      *      SimpleXMLElement object
      * @return string|bool
      *      String with the XML data, or boolean false on failure/invalid
@@ -2721,7 +2721,7 @@ class _0
     {
         if ( !class_exists( "DOMDocument" ) ) return false;
         if ( !class_exists( "SimpleXMLElement" ) ) return false;
-        $xmls = new DOMDocument( "1.0", "UTF-8" );
+        $xmls = new \DOMDocument( "1.0", "UTF-8" );
         $xmls->preserveWhiteSpace = false;
         $xmls->formatOutput = true;
         $xmls->loadXML( $data->asXML() );
@@ -2731,7 +2731,7 @@ class _0
     /**
      * Saves a SimpleXMLElement object to a file, in the desired path.
      *
-     * @param SimpleXMLElement $data
+     * @param \SimpleXMLElement $data
      *      SimpleXMLElement object
      * @param string $file
      *      Full path to the file element to be saved by the method
@@ -2787,9 +2787,9 @@ class _0
      *      Name of the child nodes to be added on root
      * @param array $data
      *      Array, with data extracted from a SimpleXML object
-     * @param SimpleXMLElement $object
+     * @param \SimpleXMLElement $object
      *      Empty SimpleXML object, with the root node declared
-     * @return SimpleXMLElement|bool
+     * @return \SimpleXMLElement|bool
      *      SimpleXML object, properly filled with the sorted data, or boolean
      *      false, if invalid node
      */
@@ -2799,11 +2799,11 @@ class _0
          * Recursive closure, properly formats and sorts the XML data in
          * $contents into the $object data.
          *
-         * @param SimpleXMLElement $object
+         * @param \SimpleXMLElement $object
          *      SimpleXML node object
-         * @param SimpleXMLElement $contents
+         * @param \SimpleXMLElement $contents
          *      SimpleXML object array, to be inserted into $object
-         * @return SimpleXMLElement|bool
+         * @return \SimpleXMLElement|bool
          *      SimpleXML node object, with proper sorting and filled
          */
         $sort_node = function( $object, $contents ) use ( &$sort_node ) {
@@ -5738,7 +5738,7 @@ class _0
         if ( !class_exists( 'SMTP' ) ) die( 'SMTP class not found!' );
         
         // Creating new instance of PHPMailer
-        $mailer = new PHPMailer();
+        $mailer = new \PHPMailer();
         
         // Set mailer to use SMTP
         $mailer->isSMTP();
