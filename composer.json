@@ -1,6 +1,7 @@
 {
   "name": "yx/_0",
   "description": "A PHP code dump.",
+  "version": "1.0.0",
   "homepage": "https://github.com/yuigoto/yx-php-zero",
   "keywords": ["code", "dump"],
   "type": "library",
